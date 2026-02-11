@@ -1,0 +1,23 @@
+services:
+    
+    _defaults:
+        autowire: true     
+        autoconfigure: true 
+
+   
+    App\:
+        resource: '../src/'
+        exclude:
+            - '../src/DependencyInjection/'
+            - '../src/Entity/'
+            - '../src/Kernel.php'
+
+   
+    _instanceof:
+        App\BaselinkerModule\Contract\MarketplaceStrategyInterface:
+            tags: ['app.marketplace_strategy']
+
+   
+    App\BaselinkerModule\Api\BaselinkerClient:
+        arguments:
+            $apiKey: '%env(BASELINKER_TOKEN)%'

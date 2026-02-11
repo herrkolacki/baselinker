@@ -1,0 +1,15 @@
+framework:
+    messenger:
+        transports:
+            sync: 'sync://'
+            async: 
+                dsn: '%env(MESSENGER_TRANSPORT_DSN)%'
+                options:
+                    auto_setup: false
+                retry_strategy:
+                    max_retries: 3
+                    delay: 1000
+                    multiplier: 2
+
+        routing:
+           'App\BaselinkerModule\Message\DownloadOrdersMessage': sync
