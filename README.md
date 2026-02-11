@@ -27,7 +27,7 @@ BASELINKER_TOKEN=TWOJ_TOKEN_TUTAJ
 MESSENGER_TRANSPORT_DSN=redis://redis:6379/messages
 
 # zbudowanie kontererów, to może trochę potrwać
-docker compose up -d --build  
+docker-compose up -d --build  
 
 # instalowanie bibliotek PHP (Coposer)
 docker-compose exec php composer install
